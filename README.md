@@ -1,7 +1,7 @@
 # The Torchbearer
 
-**Student Name:** ___________________________
-**Student ID:** ___________________________
+**Student Name:** Christian Manalo
+**Student ID:** 130370419
 **Course:** CS 460 – Algorithms | Spring 2026
 
 > This README is your project documentation. Write it the way a developer would document
@@ -17,13 +17,13 @@
 > per question. Each bullet should be 1-2 sentences max.
 
 - **Why a single shortest-path run from S is not enough:**
-  _Your answer here._
+  Single shortest path run from s using dijkstras gives cheapest path to each room, but not the order to visit the relic chambers.
 
 - **What decision remains after all inter-location costs are known:**
-  _Your answer here._
+ After all inter-location costs are known, the only decision remains is to determine what order to visit the relic chambers.
 
 - **Why this requires a search over orders (one sentence):**
-  _Your answer here._
+Since the total fuel cost changes depending on the order you visit the relic chambers, you have to search different routes and keep track of the cheapest route.
 
 ---
 

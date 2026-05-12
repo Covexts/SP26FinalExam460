@@ -1,6 +1,6 @@
 # Development Log – The Torchbearer
 
-**Student Name:** ___________________________
+**Student Name:** Christian Manalo
 **Student ID:** ___________________________
 
 > Instructions: Write at least four dated entries. Required entry types are marked below.
@@ -10,12 +10,12 @@
 
 ---
 
-## Entry 1 – [Date]: Initial Plan
+## Entry 1 – [5/11/2026]: Initial Plan
 
 > Required. Write this before writing any code. Describe your plan: what you will
 > implement first, what parts you expect to be difficult, and how you plan to test.
 
-_Your entry here._
+In order to make sure no torchbearer dies on my watch, my first step is to add dijkstras as the job requires me to find the shortest path to certain rooms which is what disjkstras does. I will also add a search algorithms that goes through different paths to find the cheapest route. I expect trying to find dead routes to cut off early to be the most difficult. I plan to test it by using the example tests.
 
 ---
 

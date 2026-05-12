@@ -2,8 +2,8 @@
 CS 460 – Algorithms: Final Programming Assignment
 The Torchbearer
 
-Student Name: ___________________________
-Student ID:   ___________________________
+Student Name: Christian Manalo
+Student ID:   130370419
 
 INSTRUCTIONS
 ------------
