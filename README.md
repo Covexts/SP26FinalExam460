@@ -3,18 +3,9 @@
 **Student Name:** Christian Manalo
 **Student ID:** 130370419
 **Course:** CS 460 – Algorithms | Spring 2026
-
-> This README is your project documentation. Write it the way a developer would document
-> their design decisions , bullet points, brief justifications, and concrete examples where
-> required. You are not writing an essay. You are explaining what you built and why you built
-> it that way. Delete all blockquotes like this one before submitting.
-
 ---
 
 ## Part 1: Problem Analysis
-
-> Document why this problem is not just a shortest-path problem. Three bullet points, one
-> per question. Each bullet should be 1-2 sentences max.
 
 - **Why a single shortest-path run from S is not enough:**
   Single shortest path run from s using dijkstras gives cheapest path to each room, but not the order to visit the relic chambers.
@@ -31,16 +22,12 @@ Since the total fuel cost changes depending on the order you visit the relic cha
 
 ### Part 2a: Source Selection
 
-> List the source node types as a bullet list. For each, one-line reason.
-
 | Source Node Type | Why it is a source |
 |---|---|
 | Entrance | It starts at the entrance node and we find cheapest route from entrance to every relic |
 | Relic | We travel to any unvisited relic or to an exit so we need to find distances from each relic |
 
 ### Part 2b: Distance Storage
-
-> Fill in the table. No prose required.
 
 | Property | Your answer |
 |---|---|
@@ -52,8 +39,6 @@ Since the total fuel cost changes depending on the order you visit the relic cha
 
 ### Part 2c: Precomputation Complexity
 
-> State the total complexity and show the arithmetic. Two to three lines max.
-
 - **Number of Dijkstra runs:** _K + 1 total, one from each of the relics k, and one from spawn_
 - **Cost per run:** _O(m log n)_
 - **Total complexity:** _O((k + 1) * m log n) = O(k * m log n)_
@@ -62,13 +47,7 @@ Since the total fuel cost changes depending on the order you visit the relic cha
 
 ## Part 3: Algorithm Correctness
 
-> Document your understanding of why Dijkstra produces correct distances.
-> Bullet points and short sentences throughout. No paragraphs.
-
 ### Part 3a: Invariant Explanation
-
-> Two bullets: one for finalized nodes, one for non-finalized nodes.
-> Do not copy the invariant text from the spec.
 
 - **For nodes already finalized (in S):**
   _When a node is finalized its shortest distance is correct so it will never change._
@@ -77,8 +56,6 @@ Since the total fuel cost changes depending on the order you visit the relic cha
   _For nodes not yet finalized, the distance stored is the best found so far but can change if something cheaper appears._
 
 ### Part 3b: Invariant Maintenance
-
-> One to two bullets per phase. Maintenance must mention nonnegative edge weights.
 
 - **Initialization : why the invariant holds before iteration 1:**
   _At start, source node is = 0 and every other node to infinity because we havent found any paths._
@@ -92,8 +69,6 @@ Since the total fuel cost changes depending on the order you visit the relic cha
 
 ### Part 3c: Why Correctness Matters
 
-> One sentence connecting correct distances to correct routing decisions.
-
 _If any of the distances are wrong the torchbearer might make wrong decisions such as choosing to go a more expensive route even though theres a cheaper option._
 
 ---
@@ -101,9 +76,6 @@ _If any of the distances are wrong the torchbearer might make wrong decisions su
 ## Part 4: Search Design
 
 ### Why Greedy Fails
-
-> State the failure mode. Then give a concrete counter-example using specific node names
-> or costs (you may use the illustration example from the spec). Three to five bullets.
 
 - **The failure mode:** _Greedy will always go to nearest unvisited relic however choosing the next cheapest node will not mean it will be the cheapest distance overall._
 - **Counter-example setup:** _Starting from S the next available nodes are A B and T. A has a cost of 1, S to B has a cost of 3, A to B has a cost of 10,B to A costs 1, A to T costs 1, and B to T costs 10._
@@ -113,8 +85,6 @@ _If any of the distances are wrong the torchbearer might make wrong decisions su
 
 ### What the Algorithm Must Explore
 
-> One bullet. Must use the word "order."
-
 - _The algorithm must explore every possible route to visit the relics and return the order that has the lowest total cost._
 
 ---
@@ -123,9 +93,6 @@ _If any of the distances are wrong the torchbearer might make wrong decisions su
 
 ### Part 5a: State Representation
 
-> Document the three components of your search state as a table.
-> Variable names here must match exactly what you use in torchbearer.py.
-
 | Component | Variable name in code | Data type | Description |
 |---|---|---|---|
 | Current location | current_loc | node| The room where the torchbearer currently is|
@@ -133,8 +100,6 @@ _If any of the distances are wrong the torchbearer might make wrong decisions su
 | Fuel cost so far | cost_so_far | float | The total fuel used so far |
 
 ### Part 5b: Data Structure for Visited Relics
-
-> Fill in the table.
 
 | Property | Your answer |
 |---|---|
@@ -146,8 +111,6 @@ _If any of the distances are wrong the torchbearer might make wrong decisions su
 
 ### Part 5c: Worst-Case Search Space
 
-> Two bullets.
-
 - **Worst-case number of orders considered:** _k!._
 - **Why:** _You have k relics to choose from and every time you do it becomes k-1, k-2..., until there is none left. Multiplying those give k!._
 
@@ -157,15 +120,11 @@ _If any of the distances are wrong the torchbearer might make wrong decisions su
 
 ### Part 6a: Best-So-Far Tracking
 
-> Three bullets.
-
 - **What is tracked:** _Cheapest completed route fond so far and the relic order._
 - **When it is used:** _It is used before exploring a new branch, it checks if that branch can lead to a better route._
 - **What it allows the algorithm to skip:** _It allows to skip any branch that cannot lead to a better route._
 
 ### Part 6b: Lower Bound Estimation
-
-> Three bullets.
 
 - **What information is available at the current state:** _We know how much fuel has been used, current location, and unvisited relics._
 - **What the lower bound accounts for:** _It accounts for the cheapest possible trip from current location to any relic and cheapest possible route to any remaining relic to the exit._
@@ -173,15 +132,11 @@ _If any of the distances are wrong the torchbearer might make wrong decisions su
 
 ### Part 6c: Pruning Correctness
 
-> One to two bullets. Explain why pruning is safe.
-
 - _Pruning is safe becasuse we only cut a branch hen the cheapest possible route of that branch is worse than the best route found so far._
 
 ---
 
 ## References
-
-> Bullet list. If none beyond lecture notes, write that.
 
 - _Lecture notes_
 - _Python Documentation, Data Structures (Sets), https://docs.python.org/3/tutorial/datastructures.html Used for Part 5b to understand how to implement a set in Python using set(), add() and remove(). Verified by testing the same syntax in my code and confirmed all tests passed_
